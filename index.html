@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NEXGUARD - Dashboard simulasi monitoring dan keamanan jaringan.">
+  <title>NEXGUARD | Network Security Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#overview">
+        <span class="brand-mark">N</span>
+        <span><b>NEXGUARD</b><small>NETWORK SECURITY</small></span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="navigation">
+        <a class="nav-link active" href="#overview" data-section="overview"><span>◫</span> Overview</a>
+        <a class="nav-link" href="#firewall" data-section="firewall"><span>⬡</span> Firewall Rules</a>
+        <a class="nav-link" href="#traffic" data-section="traffic"><span>⌁</span> Traffic Monitor</a>
+        <a class="nav-link" href="#logs" data-section="logs"><span>▤</span> Activity Logs</a>
+        <a class="nav-link" href="#blacklist" data-section="blacklist"><span>⊘</span> IP Blacklist</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="system-card">
+          <span class="pulse"></span>
+          <div><b>System operational</b><small>All services running</small></div>
+        </div>
+        <div class="profile"><div class="avatar">NG</div><div><b>Network Admin</b><small>Administrator</small></div><span class="dots">•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <b id="pageName">Overview</b></div>
+        <div class="top-actions"><span class="live-pill"><i></i> LIVE SIMULATION</span><button class="icon-btn" title="Notifications">♧</button><div class="top-avatar">A</div></div>
+      </header>
+
+      <section class="page active-page" id="overview">
+        <div class="page-heading">
+          <div><div class="eyebrow">SECURITY CONSOLE / 01</div><h1>Network overview<span>.</span></h1><p>Monitor aktivitas jaringan dan pantau potensi ancaman dalam satu tempat.</p></div>
+          <div class="date-chip" id="dateNow">--</div>
+        </div>
+        <div class="welcome-strip"><div><span class="welcome-icon">✦</span><div><b>Protection is enabled</b><small>Firewall aktif dan sistem siap memantau traffic simulasi.</small></div></div><span class="status-text">PROTECTED</span></div>
+
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>Total packets</span><span class="stat-icon blue">⌁</span></div><strong id="totalPackets">1,284</strong><small><em>↑ 12.8%</em> dibanding sesi sebelumnya</small><div class="mini-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Allowed connections</span><span class="stat-icon green">✓</span></div><strong id="allowedCount">1,102</strong><small><em class="green-text">Traffic aman</em> berhasil diteruskan</small><div class="progress"><i style="width:86%"></i></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Threats blocked</span><span class="stat-icon red">⌑</span></div><strong id="blockedCount">182</strong><small><em class="red-text">Ancaman ditahan</em> oleh firewall</small><div class="progress red-progress"><i style="width:14%"></i></div></article>
+          <article class="stat-card"><div class="stat-top"><span>Active rules</span><span class="stat-icon violet">☷</span></div><strong id="ruleCount">04</strong><small>Aturan firewall yang diterapkan</small><div class="rule-dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        </div>
+
+        <div class="content-grid">
+          <article class="panel traffic-panel">
+            <div class="panel-heading"><div><h2>Traffic activity</h2><p>Volume paket jaringan secara real-time (simulasi)</p></div><span class="select-chip">Last 60 seconds⌄</span></div>
+            <div class="chart-legend"><span><i class="legend-blue"></i> Incoming</span><span><i class="legend-purple"></i> Outgoing</span></div>
+            <div class="chart-wrap"><div class="y-labels"><span>500</span><span>400</span><span>300</span><span>200</span><span>100</span><span>0</span></div><div class="chart" id="trafficChart"><div class="grid-lines"><i></i><i></i><i></i><i></i><i></i><i></i></div><svg viewBox="0 0 700 220" preserveAspectRatio="none" aria-label="Grafik traffic jaringan"><defs><linearGradient id="areaBlue" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#36a5ff" stop-opacity=".27"/><stop offset="1" stop-color="#36a5ff" stop-opacity="0"/></linearGradient></defs><path id="areaPath" fill="url(#areaBlue)" d="M0 155 L70 130 L140 145 L210 90 L280 112 L350 65 L420 92 L490 48 L560 75 L630 35 L700 55 L700 220 L0 220Z"/><path id="linePath" d="M0 155 L70 130 L140 145 L210 90 L280 112 L350 65 L420 92 L490 48 L560 75 L630 35 L700 55" fill="none" stroke="#36a5ff" stroke-width="3" vector-effect="non-scaling-stroke"/><path id="linePath2" d="M0 180 L70 165 L140 175 L210 145 L280 155 L350 130 L420 150 L490 118 L560 140 L630 105 L700 125" fill="none" stroke="#9b8cff" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg><div class="x-labels"><span>60s ago</span><span>50s</span><span>40s</span><span>30s</span><span>20s</span><span>10s</span><span>Now</span></div></div></div>
+          </article>
+          <article class="panel threat-panel"><div class="panel-heading"><div><h2>Threat distribution</h2><p>Jenis aktivitas yang terdeteksi</p></div><span class="more">•••</span></div><div class="donut-area"><div class="donut"><div><b id="threatTotal">182</b><small>Blocked</small></div></div></div><div class="threat-list"><div><i class="dot red-dot"></i><span>Port scanning</span><b>48%</b></div><div><i class="dot purple-dot"></i><span>Suspicious IP</span><b>32%</b></div><div><i class="dot blue-dot"></i><span>Unusual traffic</span><b>20%</b></div></div></article>
+        </div>
+        <article class="panel table-panel"><div class="panel-heading"><div><h2>Recent security events</h2><p>Aktivitas terbaru yang tercatat oleh sistem</p></div><a class="text-link" href="#logs">View all events ↗</a></div><div class="table-scroll"><table><thead><tr><th>TIME</th><th>SOURCE IP</th><th>EVENT</th><th>PORT</th><th>DECISION</th></tr></thead><tbody id="recentRows"></tbody></table></div></article>
+      </section>
+
+      <section class="page" id="firewall"><div class="page-heading"><div><div class="eyebrow">SECURITY CONTROL / 02</div><h1>Firewall rules<span>.</span></h1><p>Atur koneksi yang diizinkan atau diblokir oleh firewall simulasi.</p></div><span class="live-pill"><i></i> FIREWALL ACTIVE</span></div>
+        <article class="panel form-panel"><div class="panel-heading"><div><h2>Create a rule</h2><p>Tambahkan aturan berdasarkan alamat IP dan port tujuan.</p></div></div><form id="ruleForm" class="form-grid"><label>IP address<input id="ruleIp" placeholder="Contoh: 192.168.1.10"></label><label>Destination port<input id="rulePort" type="number" min="1" max="65535" placeholder="Contoh: 8080"></label><label>Action<select id="ruleAction"><option value="Block">Block connection</option><option value="Allow">Allow connection</option></select></label><button class="primary-btn" type="submit">＋ Add firewall rule</button></form></article>
+        <article class="panel table-panel"><div class="panel-heading"><div><h2>Configured rules</h2><p>Daftar aturan firewall yang sedang tersimpan</p></div><span class="count-chip" id="ruleTotal">4 RULES</span></div><div class="table-scroll"><table><thead><tr><th>IP ADDRESS</th><th>PORT</th><th>ACTION</th><th>STATUS</th><th>MANAGE</th></tr></thead><tbody id="rulesRows"></tbody></table></div></article>
+      </section>
+
+      <section class="page" id="traffic"><div class="page-heading"><div><div class="eyebrow">NETWORK ANALYTICS / 03</div><h1>Traffic monitor<span>.</span></h1><p>Jalankan simulasi paket untuk melihat bagaimana firewall mengambil keputusan.</p></div></div>
+        <article class="panel simulator"><div class="sim-icon">⌁</div><h2>Network traffic simulator</h2><p>Tekan tombol di bawah untuk menghasilkan aktivitas jaringan acak. Sistem akan memeriksa paket berdasarkan aturan firewall.</p><div class="sim-stats"><div><small>PACKETS PROCESSED</small><b id="simProcessed">0</b></div><div><small>ALLOWED</small><b class="green-text" id="simAllowed">0</b></div><div><small>BLOCKED</small><b class="red-text" id="simBlocked">0</b></div></div><div class="sim-buttons"><button class="primary-btn" id="runSimulation">▶ Run traffic simulation</button><button class="secondary-btn" id="pauseSimulation">Ⅱ Pause</button></div><div class="simulation-output" id="simOutput">Menunggu simulasi dimulai...</div></article>
+        <article class="panel"><div class="panel-heading"><div><h2>How firewall decides</h2><p>Logika sederhana pemeriksaan paket</p></div></div><div class="steps"><div><b>01</b><span><strong>Incoming packet</strong><small>Paket masuk membawa IP sumber dan port tujuan.</small></span></div><div><b>02</b><span><strong>Rule inspection</strong><small>Sistem mencocokkan paket dengan aturan firewall.</small></span></div><div><b>03</b><span><strong>Allow / Block</strong><small>Paket diteruskan atau ditolak sesuai aturan.</small></span></div></div></article>
+      </section>
+
+      <section class="page" id="logs"><div class="page-heading"><div><div class="eyebrow">AUDIT TRAIL / 04</div><h1>Activity logs<span>.</span></h1><p>Riwayat aktivitas dan keputusan firewall selama simulasi.</p></div><button class="secondary-btn" id="clearLogs">⌫ Clear logs</button></div><article class="panel table-panel"><div class="panel-heading"><div><h2>All network events</h2><p id="logSubtitle">Menampilkan catatan aktivitas terbaru</p></div><input class="search-input" id="logSearch" placeholder="Search IP or event..."></div><div class="table-scroll"><table><thead><tr><th>TIME</th><th>SOURCE IP</th><th>EVENT</th><th>PORT</th><th>DECISION</th></tr></thead><tbody id="logsRows"></tbody></table></div></article></section>
+
+      <section class="page" id="blacklist"><div class="page-heading"><div><div class="eyebrow">ACCESS MANAGEMENT / 05</div><h1>IP blacklist<span>.</span></h1><p>Kelola alamat IP yang tidak diperbolehkan mengakses jaringan.</p></div></div><article class="panel form-panel"><div class="panel-heading"><div><h2>Block an IP address</h2><p>Masukkan IP dan alasan pemblokiran.</p></div></div><form id="blacklistForm" class="form-grid blacklist-form"><label>IP address<input id="blackIp" placeholder="Contoh: 203.0.113.25" required></label><label class="wide-label">Reason<input id="blackReason" placeholder="Contoh: Suspicious activity" required></label><button class="danger-btn" type="submit">⊘ Add to blacklist</button></form></article><article class="panel table-panel"><div class="panel-heading"><div><h2>Blocked IP addresses</h2><p>IP yang ditambahkan ke daftar blokir</p></div><span class="count-chip" id="blackTotal">2 BLOCKED</span></div><div class="table-scroll"><table><thead><tr><th>IP ADDRESS</th><th>REASON</th><th>DATE ADDED</th><th>MANAGE</th></tr></thead><tbody id="blackRows"></tbody></table></div></article></section>
+      <footer>© 2026 NEXGUARD Security Lab <span>Educational network security simulation</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
